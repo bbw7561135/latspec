@@ -15,8 +15,8 @@ To install:
    # Science tools, FTOOLS and Xspec are properly installed and set up
 
    # unpack the source tar file and change to the source directory
-   > tar zxvf latspec-0.1.1.tar.gz
-   > cd latspec-0.1.1
+   > tar zxvf latspec-0.1.tar.gz
+   > cd latspec-0.1
 
    # install in the default python directory in the Fermi Science
    # tools directory
