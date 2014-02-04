@@ -1,5 +1,0 @@
-#!/usr/bin/env python
-
-import latspec
-if __name__ == '__main__':
-    latspec.run_latspec()
