@@ -1,0 +1,42 @@
+	Fermi LAT Xspec Analysis  (version 0.1.1)
+
+The Latspec is a graphical interactive analysis tool designed for
+reduction and analysis of the Fermi/LAT (http://fermi.gsfc.nasa.gov/ssc) 
+data using Xspec astrophysical spectral fitting package 
+(http://heasarc.gsfc.nasa.gov/docs/xanadu/xspec). The tool
+is integrated with Fermi Science Tools, FTOOLS, Xspec and 
+DS9 imaging tool (hea-www.harvard.edu/RD/ds9) to provide
+fast and convenient analysis steps from LAT server data to spectral modeling.
+
+
+To install:
+
+   # verify that you have installed ds9 and that the Fermi
+   # Science tools, FTOOLS and Xspec are properly installed and set up
+
+   # unpack the source tar file and change to the source directory
+   > tar zxvf Latspec-0.1.1.tar.gz
+   > cd Latspec-0.1.1
+
+   # install in the default python directory in the Fermi Science
+   # tools directory
+   > python setup.py install
+
+To run:
+   
+   > latspec
+
+
+
+ 
+For more detailed help press "Help" button in the lower part of the 
+program window.
+
+Note: Latspec lightcurve extraction relies on the cpflux Xspec model
+to estimate fluxes. To make sure lightcurve part of the program is 
+working properly, please, install Xspec version 12.8.1 or later
+before using Latspec.
+
+Contact nikolai.v.shaposhnikov@nasa.gov for any questions.
+
+Nikolai Shaposhnikov
