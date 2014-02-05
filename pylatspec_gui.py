@@ -2153,10 +2153,10 @@ class LatSpecApp(tk.Frame):
             self.ds9_thread = threading.Thread(target = self.ds9wait,args=())
             self.ds9_thread.start()
             self.ImageDS9Button["text"] = "Stop ds9"
-            self.logblue("Opening ds9 session to edit/verify regions.The source region is shown in green,\n background region is red. When ready, press \" ds9/regions\" button again to \n read regions.")
+            self.logblue("Opening ds9 session to edit/verify regions.The source region is shown in green,\nbackground region is red. DO NOT ADD or DELETE regions!")
 
             if self.analysis.haveCatalog:
-                self.logblue("Hint: you can place the source region over a Catalog source by choosing \n the source name in the \"2FGL source\" menu.")
+                self.logblue("Hint: you can place the source region over a Catalog source by choosing \nthe source name in the \"2FGL source\" menu.")
 
         else:
 
@@ -2171,7 +2171,7 @@ class LatSpecApp(tk.Frame):
                 self.ds9_thread = threading.Thread(target = self.ds9wait,args=())
                 self.ds9_thread.start()
                 self.ImageDS9Button["text"] = "Stop ds9"
-                self.logblue("Opening ds9 session to edit/verify regions.The source region is shown in green,\n background region is red. When ready, press \" ds9/regions\" button again \n to read regions.")
+                self.logblue("Opening ds9 session to edit/verify regions.The source region is shown in green,\nbackground region is red. DO NOT ADD or DELETE regions!")
                 if self.analysis.haveCatalog:
                     self.logblue("Hint: you can jump to a Catalog source by using \"2FGL source\" menu.")
 
@@ -2185,11 +2185,11 @@ class LatSpecApp(tk.Frame):
         xpa_response = "no"
         nwait = 0
         while xpa_response.strip() != "yes" and nwait < 30:
-            time.sleep(1.0)
+            time.sleep(0.2)
             xpa_response = subprocess.Popen(['xpaaccess','-c',self.analysis.ds9id],
                                             stdout=subprocess.PIPE).communicate()[0]
             nwait += 1
-#            print xpa_response.strip(),nwait
+#            print xpa_response.strip(),nwait,'here'
 
 
             
@@ -2475,7 +2475,7 @@ class LatSpecApp(tk.Frame):
                                     "    nxpix="+str(npics),"    nypix="+str(npics),
                                     "    binsz="+str(binsz),"    xref="+str(self.analysis.ra),
                                     "    yref="+str(self.analysis.dec),"    axisrot=0.0",
-                                    "    proj=AIT","coordsys=CEL",
+                                    "    proj=AIT","    coordsys=CEL",
                                     "    chatter="+str(self.analysis.chatter)],"\n"))
         self.image_file.set("calculating...")
         self.ImageLabel.update()

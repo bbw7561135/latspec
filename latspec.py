@@ -564,9 +564,10 @@ class LatSpec:
 
 
 def printHelp():
-    """This function prints out the help for the CLI."""
+    """This function prints out the help."""
 
-    cmd = os.path.basename(sys.argv[0])
+    cmd = "latspec"
+
     print """
                         - LAT Xspec Analysis - 
 
