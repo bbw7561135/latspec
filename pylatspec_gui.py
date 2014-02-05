@@ -1784,7 +1784,7 @@ class LatSpecApp(tk.Frame):
             "     Response:  "+self.analysis.name+'/'+self.analysis.name+".rsp\n"+\
             "     Arf:       "+self.analysis.name+'/'+self.analysis.name+".arf")
             
-
+            self.logblue("To see the plot of source and background spectra versus channels,\npress \"Plot spectrum/background\". Press \"Save spectrum\" to save files in different location. To analyse spectrum in Xspec press \"Start Xspec\".")
 
         if self.specthread.state == "stopped":
 
@@ -1979,8 +1979,8 @@ class LatSpecApp(tk.Frame):
 #            lcf = self.lc_file.get()
             lcf = self.analysis.name+'_'+self.lc_bin.get()+'.lc'
             self.lc_file.set(lcf)
-            self.logblue("Finished producing lightcurve." + \
-            "Lightcurve file is saved to "+self.analysis.name+'/'+lcf+".")
+            self.logblue("Finished producing lightcurve.\n" + \
+            "Lightcurve file is saved to "+self.analysis.name+'/'+lcf+".  Press \"Show lightcurve\" to see the lightcurve. Press \"Save lightcurve\" to save the file in different location.")
 
 
         if self.lsthread.state == "stopped":
@@ -2422,7 +2422,8 @@ class LatSpecApp(tk.Frame):
                 self.analysis.evfile = \
                     self.analysis.basename+"_filtered_gti.fits"
                 self.filtered_events.set(self.analysis.evfile)           
-                self.logblue("Finished filtering events!")
+                self.logblue("Finished filtering events! Now you can create galctic cube\nby pressing \"Run GTLTcube\" and the region image by pressing \"Extract Image\".")
+                
             else:
                 self.logerr("Something wrong. Event file was not created!!!")
                 self.analysis.evfile = "None"
@@ -2524,6 +2525,7 @@ class LatSpecApp(tk.Frame):
         if os.path.exists(self.analysis.basename+'_image.fits'):
             self.logit("Image file: "+self.analysis.basename+"_image.fits created.")
             self.logblue("Finished extracting image.")
+            self.logblue("Press \"Run ds9\" to explore the image and edit extraction regions.")
             self.analysis.image = self.analysis.basename+'_image.fits'
 
         self.set_filter_panel()
